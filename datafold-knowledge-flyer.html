@@ -218,29 +218,24 @@
             <p class="subtitle">✨ Auto-Syncing for the Whole Team ✨</p>
         </div>
 
-        <div class="location">
-            <div class="location-label">🏟️ The Shared Skating Rink</div>
-            <div class="location-path">/data/shared/</div>
-        </div>
-
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">📦</div>
                 <div class="feature-title">Datafold Repo</div>
                 <div class="feature-desc">Full codebase, always fresh from GitHub</div>
-                <div class="feature-badge">Every 15 min</div>
+                <div class="feature-badge">Syncs every 15 min</div>
             </div>
             <div class="feature">
                 <div class="feature-icon">🧠</div>
-                <div class="feature-title">Knowledge Base</div>
-                <div class="feature-desc">Auto-detects when docs need updates</div>
-                <div class="feature-badge">Every 2 hours</div>
+                <div class="feature-title">Datafold Knowledge Base</div>
+                <div class="feature-desc">DMA, DataDiff, architecture docs — always current</div>
+                <div class="feature-badge">Updates every 2 hrs</div>
             </div>
             <div class="feature">
-                <div class="feature-icon">🤖</div>
-                <div class="feature-title">Claude-Ready</div>
-                <div class="feature-desc">Point CLAUDE.md here for instant context</div>
-                <div class="feature-badge">Always on</div>
+                <div class="feature-icon">🛠️</div>
+                <div class="feature-title">/updating-knowledge</div>
+                <div class="feature-desc">Slash command to refresh the knowledge base on demand</div>
+                <div class="feature-badge">Run anytime</div>
             </div>
         </div>
 
@@ -259,14 +254,14 @@ Datafold repo (auto-synced):
                 </div>
             </div>
             <div class="panel panel-green">
-                <h3>🎮 DJ Booth Commands</h3>
-                <ul class="cmd-list">
-                    <li><code>status</code> <span>Is the party pumping?</span></li>
-                    <li><code>logs</code> <span>Recent sync activity</span></li>
-                    <li><code>run-sync</code> <span>Force repo sync now</span></li>
-                    <li><code>run-knowledge</code> <span>Check for updates</span></li>
-                </ul>
-                <p class="cmd-path">📍 <code>/data/shared/hooks/scheduler-control.sh</code></p>
+                <h3>🎮 Using the Skill</h3>
+                <p>To manually refresh the knowledge base:</p>
+                <div class="code-block" style="font-size: 1rem; text-align: center; padding: 14px;">
+<span class="path">/updating-knowledge</span>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.75rem; color: #aaa;">
+                    The skill analyzes recent GitHub commits and updates the knowledge base when significant changes are detected.
+                </p>
             </div>
         </div>
 
