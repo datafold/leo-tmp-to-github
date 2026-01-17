@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Datafold Shared Knowledge Base</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .flyer {
+            background: linear-gradient(145deg, #2d2d44, #1f1f35);
+            border-radius: 24px;
+            padding: 32px 40px;
+            max-width: 900px;
+            width: 100%;
+            border: 3px solid;
+            border-image: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff) 1;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header .emojis { font-size: 36px; }
+
+        .title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.6rem;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            margin: 8px 0;
+        }
+
+        .subtitle {
+            color: #ffd93d;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .location {
+            background: rgba(255,107,107,0.15);
+            border: 2px dashed rgba(255,217,61,0.5);
+            border-radius: 12px;
+            padding: 12px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .location-label {
+            font-family: 'Bangers', cursive;
+            color: #fff;
+            font-size: 1.3rem;
+        }
+
+        .location-path {
+            font-family: 'Roboto Mono', monospace;
+            color: #6bcb77;
+            background: rgba(0,0,0,0.3);
+            padding: 6px 14px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 0.9rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .feature {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .feature-icon { font-size: 28px; margin-bottom: 6px; }
+        .feature-title { color: #fff; font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+        .feature-desc { color: #aaa; font-size: 0.8rem; line-height: 1.3; }
+        .feature-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #4d96ff, #9b59b6);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .panel-blue {
+            background: rgba(77, 150, 255, 0.1);
+            border-left: 4px solid #4d96ff;
+        }
+
+        .panel-green {
+            background: rgba(107, 203, 119, 0.1);
+            border-left: 4px solid #6bcb77;
+        }
+
+        .panel h3 {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .panel-blue h3 { color: #4d96ff; }
+        .panel-green h3 { color: #6bcb77; }
+
+        .panel p { color: #ccc; font-size: 0.8rem; margin-bottom: 8px; }
+
+        .code-block {
+            background: #0d1117;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.72rem;
+            color: #6bcb77;
+            line-height: 1.5;
+        }
+
+        .code-block .comment { color: #6a737d; }
+        .code-block .path { color: #ffd93d; }
+
+        .cmd-list { list-style: none; }
+        .cmd-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+            color: #ccc;
+            font-size: 0.78rem;
+        }
+        .cmd-list code {
+            font-family: 'Roboto Mono', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #ffd93d;
+            font-size: 0.7rem;
+        }
+
+        .cmd-path {
+            color: #888;
+            font-size: 0.7rem;
+            margin-top: 10px;
+        }
+        .cmd-path code {
+            background: none;
+            color: #6bcb77;
+            padding: 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, rgba(255,107,107,0.25), rgba(255,217,61,0.25));
+            color: #fff;
+            padding: 5px 14px;
+            border-radius: 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        .footer .date { color: #ffd93d; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <div class="emojis">🛼 ⚡ 🛼</div>
+            <h1 class="title">Roll Into Datafold Shared Knowledge!</h1>
+            <p class="subtitle">✨ Auto-Syncing for the Whole Team ✨</p>
+        </div>
+
+        <div class="location">
+            <div class="location-label">🏟️ The Shared Skating Rink</div>
+            <div class="location-path">/data/shared/</div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📦</div>
+                <div class="feature-title">Datafold Repo</div>
+                <div class="feature-desc">Full codebase, always fresh from GitHub</div>
+                <div class="feature-badge">Every 15 min</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <div class="feature-title">Knowledge Base</div>
+                <div class="feature-desc">Auto-detects when docs need updates</div>
+                <div class="feature-badge">Every 2 hours</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-title">Claude-Ready</div>
+                <div class="feature-desc">Point CLAUDE.md here for instant context</div>
+                <div class="feature-badge">Always on</div>
+            </div>
+        </div>
+
+        <div class="two-col">
+            <div class="panel panel-blue">
+                <h3>🎯 How to Join the Party</h3>
+                <p>Add this to your <strong>CLAUDE.md</strong>:</p>
+                <div class="code-block">
+<span class="comment">## Datafold Shared Resources</span>
+
+For architecture questions, read:
+  <span class="path">/data/shared/DATAFOLD_KNOWLEDGE.md</span>
+
+Datafold repo (auto-synced):
+  <span class="path">/data/shared/datafold-repo/</span>
+                </div>
+            </div>
+            <div class="panel panel-green">
+                <h3>🎮 DJ Booth Commands</h3>
+                <ul class="cmd-list">
+                    <li><code>status</code> <span>Is the party pumping?</span></li>
+                    <li><code>logs</code> <span>Recent sync activity</span></li>
+                    <li><code>run-sync</code> <span>Force repo sync now</span></li>
+                    <li><code>run-knowledge</code> <span>Check for updates</span></li>
+                </ul>
+                <p class="cmd-path">📍 <code>/data/shared/hooks/scheduler-control.sh</code></p>
+            </div>
+        </div>
+
+        <div class="tags">
+            <span class="tag">DMA Pipeline</span>
+            <span class="tag">DataDiff</span>
+            <span class="tag">MCP Tools</span>
+            <span class="tag">ETL Translation</span>
+            <span class="tag">Agent Framework</span>
+        </div>
+
+        <div class="footer">
+            ✨ Launched <span class="date">January 2026</span> ✨
+            <br>No more stale context. Just smooth skating through the codebase. 🛼
+        </div>
+    </div>
+</body>
+</html>
